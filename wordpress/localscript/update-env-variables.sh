@@ -63,6 +63,8 @@ local_update_env_variables()
     run_function env_update_variable $LOCAL_FULL_PATH "DOCKER_WORDPRESS_MYSQL_USER" "$LOCAL_MYSQL_USER"
     run_function env_update_variable $LOCAL_FULL_PATH "DOCKER_WORDPRESS_MYSQL_PASSWORD" "$LOCAL_MYSQL_PASSWORD"
     run_function env_update_variable $LOCAL_FULL_PATH "DOCKER_WORDPRESS_DB_CONTAINER_NAME" "$LOCAL_CONTAINER_DB_NAME"
+    # local DB port
+    run_function env_update_variable $LOCAL_FULL_PATH "DOCKER_WORDPRESS_DB_PORT" "$LOCAL_DB_PORT"
 
     # WordPress options
     run_function env_update_variable $LOCAL_FULL_PATH "DOCKER_WORDPRESS_SITE_IMAGE" "$LOCAL_SITE_IMAGE"
