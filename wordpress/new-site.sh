@@ -379,7 +379,7 @@ LOCAL_NEW_URL=$DOMAIN_URL_RESPONSE
 #-----------------------------------------------------------------------
 # DB Ports (test)
 #-----------------------------------------------------------------------
-run_function common_read_user_input "Please enter a AVAILABLE host external DB port:"
+run_function common_read_user_input "Please enter AVAILABLE host external DB port:"
 
 LOCAL_DB_PORT=$USER_INPUT_RESPONSE
 
