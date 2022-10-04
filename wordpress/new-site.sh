@@ -377,6 +377,14 @@ run_function domain_get_domain_from_url $NEW_URL
 LOCAL_NEW_URL=$DOMAIN_URL_RESPONSE
 
 #-----------------------------------------------------------------------
+# DB Ports (test)
+#-----------------------------------------------------------------------
+run_function common_read_user_input "Please enter the external DB port:"
+
+LOCAL_DB_PORT=$USER_INPUT_RESPONSE
+
+
+#-----------------------------------------------------------------------
 # Docker Compose Service Name - unique tag (--compose-service-unique-tag|-csut)
 #-----------------------------------------------------------------------
 if [[ $ARG_COMPOSE_SERVICE_UNIQUE_TAG != "" ]]; then
@@ -602,6 +610,8 @@ LOCAL_MYSQL_USER=${LOCAL_SITE_NAME:0:9}"_user"
 LOCAL_MYSQL_PASSWORD=$RANDOM_STRING
 LOCAL_CONTAINER_SITE_NAME="$LOCAL_PROJECT_NAME-site-$COMPOSE_UNIQUE_TAG"
 LOCAL_LETSENCRYPT_EMAIL=${ARG_LETSENCRYPT_EMAIL:-$LETSENCRYPT_EMAIL}
+# add local DB port
+LOCAL_MYSQL_DB_PORT=$LOCAL_DB_PORT
 
 # @todo - como verificar se setá rodando? ahh depois do composer pronto .....
 
@@ -660,6 +670,8 @@ echoline "LOCAL_CONTAINER_DB_NAME: $LOCAL_CONTAINER_DB_NAME"
 echoline "LOCAL_MYSQL_DATABASE: $LOCAL_MYSQL_DATABASE"
 echoline "LOCAL_MYSQL_USER: $LOCAL_MYSQL_USER"
 echoline "LOCAL_MYSQL_PASSWORD: $LOCAL_MYSQL_PASSWORD"
+# Local DB port
+echoline "LOCAL_MYSQL_DB_PORT: $LOCAL_MYSQL_DB_PORT"
 
 echowarning "The new site might take a few minutes to be ready. Please wait..."
 echowarning "If you get database connection error, wait a couple more minutes. Database might take some time to end its creation. You can check the DB container running the follow:"
